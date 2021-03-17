@@ -6,12 +6,6 @@ name: Uberscrape
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   schedule:
     - cron: '*/5 * * * *'
 
@@ -23,8 +17,8 @@ jobs:
 
     # Load repo and install R
     steps:
-    - uses: actions/checkout@main
-    - uses: r-lib/actions/setup-r@main
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
 
     # Set-up R
     - name: Install packages
