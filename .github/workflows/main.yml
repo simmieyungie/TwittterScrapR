@@ -5,7 +5,7 @@ name: Uberscrape
 # Controls when the action will run.
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   schedule:
     - cron: '*/5 * * * *'
 
