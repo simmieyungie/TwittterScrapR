@@ -21,7 +21,7 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages("twitteR")'
-        R -e 'install.packages("utils")'
+        
     # Run R script
     - name: Scrap
       run: Rscript Scrap.R
