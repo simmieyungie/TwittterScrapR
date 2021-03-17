@@ -3,6 +3,7 @@
 library(twitteR)
 library(utils)
 
+#sa
 #Save app credentials for access to tweets
 consumerKey <- "TLwcYDEblVFgtDIqeqGXY05zH"
 
