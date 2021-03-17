@@ -22,7 +22,7 @@ data <- searchTwitter("uber", n = 1000,
                       resultType = "recent", lang = "en")
 
 
-
 #write csv
-write.csv(twListToDF(data), paste("data/","uber", Sys.Date(), ".csv", sep = ""))
+write.csv(twListToDF(data), gsub(":", "-",paste("data/","uber", as.character(Sys.time()), ".csv", sep = "")))
+
 
