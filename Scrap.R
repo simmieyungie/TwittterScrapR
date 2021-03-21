@@ -19,7 +19,7 @@ setup_twitter_oauth(consumerKey,consumerSecret,accessToken,accessTokenSecret)
 
 #
 #data collector
-data <- searchTwitter("uber", n = 1000, 
+data <- searchTwitter("uber", n = 2000, 
                       resultType = "recent", lang = "en")
 
 
