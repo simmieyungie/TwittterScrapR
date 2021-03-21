@@ -1,5 +1,5 @@
 # Hourly scraping
-name: AnalyzeScrap
+name: AnalysisRun
 
 # Controls when the action will run.
 # Controls when the action will run.
@@ -7,7 +7,7 @@ on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   push:
-  	branches: main
+    branches: main
 
 
 jobs: 
@@ -23,11 +23,8 @@ jobs:
     # Set-up R
     - name: Install packages
       run: |
-	R -e 'install.packages("tidyverse")'
-	R -e 'install.packages("tm")'
-	R -e 'install.packages("lubridate")'
-	R -e 'install.packages("tidytext")'
-        
+        R -e 'install.packages(c("tidyverse", "tidytext", "tm", "lubridate"))'
+	
     # Run R script
     - name: AnalysisScript
       run: Rscript AnalysisScript.R
