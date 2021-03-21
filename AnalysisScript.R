@@ -13,9 +13,22 @@ files = list.files(paste(getwd(), "/data", sep = ""), pattern=".csv", full.names
 files
 
 
-#Loop over each file, read and rbind each of them
-df <- do.call("rbind",lapply(files, read.csv))
+#get information about files
+today = format(ymd_hms(file.info(files)$ctime),"%Y-%m-%d") == Sys.Date()
 
+
+#get all files created today
+files <- data.frame(files = files, today = today) %>% 
+  filter(today == TRUE) %>% 
+  select(files)%>% 
+  as.vector()
+
+
+#Loop over each file, read and rbind each of them
+df <- do.call("rbind",lapply(files$files, read.csv))
+
+
+#convert tweet
 df <- df %>% 
       mutate(text = iconv(text, from = "latin1", to = "ASCII"))
 
