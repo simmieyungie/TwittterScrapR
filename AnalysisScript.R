@@ -16,6 +16,8 @@ files
 #Loop over each file, read and rbind each of them
 df <- do.call("rbind",lapply(files, read.csv))
 
+df <- df %>% 
+      mutate(text = iconv(text, from = "latin1", to = "ASCII"))
 
 #Get number of tweets, retweets, number of tweeting handles
 
@@ -69,8 +71,8 @@ df %>%
   mutate(text = tolower(text)) %>% 
   #mutate(text = removeURL2(text)) %>% 
   mutate(text = removeNumPunct(text)) %>% 
-  mutate(text = gsub("ря", "", text)) %>% 
-  mutate(text = gsub("в", "", text)) %>% 
+  #mutate(text = gsub("Г°Гї", "", text)) %>% 
+  #mutate(text = gsub("Гў", "", text)) %>% 
   unnest_tokens(word, text) %>% 
   anti_join(stop_words) %>% 
   count(word, sort = T) %>% 
