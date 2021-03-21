@@ -24,7 +24,6 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages(c("tidyverse", "tidytext", "tm", "lubridate"))'
-	
     # Run R script
     - name: AnalysisScript
       run: Rscript AnalysisScript.R
